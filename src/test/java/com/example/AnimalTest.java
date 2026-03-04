@@ -24,7 +24,7 @@ class AnimalTest {
     }
 
     @Test
-    void getFoodWithUnknownAnimalReturnExceptionUnknowAnimal() throws Exception {
+    void getFoodWithUnknownAnimalReturnExceptionUnknowAnimal() {
         Exception exception = assertThrows(Exception.class, () -> animal.getFood("Неизвестно"));
         assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
     }

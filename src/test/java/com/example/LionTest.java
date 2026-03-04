@@ -2,8 +2,6 @@ package com.example;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -27,7 +25,7 @@ class LionTest {
     }
 
     @Test
-    void constructorWhenSexIsFemaleShouldSetHasManeTrue() throws Exception {
+    void constructorWhenSexIsFemaleShouldSetHasManeFalse() throws Exception {
         Lion lion = new Lion("Самка");
         assertFalse(lion.doesHaveMane());
     }
@@ -43,16 +41,6 @@ class LionTest {
         Lion lion = new Lion("Самец");
         int kittens = lion.getKittens();
         assertEquals(1, kittens);
-    }
-
-    @ParameterizedTest(name = "sex={0} → hasMane={1}")
-    @CsvSource({
-            "Самец, true",
-            "Самка, false"
-    })
-    void doesHaveManeWhenMaleShouldReturnBoolean(String sex, boolean expectedHasMane) throws Exception {
-        Lion lion = new Lion(sex);
-        assertEquals(expectedHasMane, lion.doesHaveMane(),sex + " должно быть " + expectedHasMane);
     }
 
     @Test
